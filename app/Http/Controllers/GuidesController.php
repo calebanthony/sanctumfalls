@@ -121,15 +121,17 @@ class GuidesController extends Controller
         foreach ($guide->build as $key => $step) {
             $steps = explode('_', $step);
 
+            $tooltip = TooltipQuery::get($hero, $step);
+
             // Handle if the skill is a talent first
             if (!array_key_exists(1, $steps)) {
-                continue;
+                $buildSteps[$key]['skill'] = 'talent';
+            } else {
+                $buildSteps[$key]['skill'] = $steps[0];
             }
-            $tooltip = TooltipQuery::get($hero, $step);
 
             // Setting up the array with base skill values.
             $buildSteps[$key]['build'] = end($steps);
-            $buildSteps[$key]['skill'] = $steps[0];
             $buildSteps[$key]['tooltip'] = $tooltip;
         }
 

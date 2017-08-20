@@ -3,6 +3,7 @@
 namespace App\Queries;
 
 use App\Hero;
+use App\Skill;
 
 class TooltipQuery
 {
@@ -23,10 +24,12 @@ class TooltipQuery
         // Check if skill is primary, secondary, or tertiary
         if (!array_key_exists(1, $steps)) {
             // This means there's only the first step, which
-            // will be something like "talent1" or "lmb"
-            //
-            // Handle talents here too
-            $selectedSkill = $selectedHero->{$steps[0] . 'Ability'};
+            // will be something like "Outgunned" or "lmb"
+            if ($steps[0] !== 'lmb' && $steps[0] !== 'rmb' && $steps[0] !== 'f' && $steps[0] !== 'q' && $steps[0] !== 'e') {
+                $selectedSkill = Skill::where('name', $steps[0])->first();
+            } else {
+                $selectedSkill = $selectedHero->{$steps[0] . 'Ability'};
+            }
         } elseif (!array_key_exists(2, $steps)) {
             // This means it's a secondary skill, like "f_left"
             $selectedSkill = $selectedHero->{$steps[0] . 'Ability'}->{$steps[1]};
@@ -36,7 +39,7 @@ class TooltipQuery
         }
 
         // Set each part of the finished skill
-        $imageUri = "/images/" . preg_replace('/\s+/', '', strtolower($hero)) . "/{$steps[0]}.png";
+        $imageUri = "/images/" . preg_replace('/\s+/', '', strtolower($hero)) . "/" . strtolower($steps[0]) . ".png";
         $name = $selectedSkill->name;
         $description = $selectedSkill->description;
 
