@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        // Leave this for fake data
+        // If you want real data, use an Artisan command
     }
 }

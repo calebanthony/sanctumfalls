@@ -1,0 +1,51 @@
+li img {
+    height: 1rem;
+}
+.explain {
+    font-style: italic;
+    color: $subtitle;
+}
+
+.focus {
+    color: #F1D643;
+}
+
+.armor, .reflect, .invulnerable, .deflect, .jumphigher {
+    color: #4BECD6;
+}
+
+.bleed, .burn, .curse {
+    color: #FF3131;
+}
+
+.damage {
+    color: #C72E2E;
+}
+
+.speed {
+    color: #0081C2;
+}
+
+.cleanse, .health {
+    color: #16D900;
+}
+
+.crackarmor, .weakness {
+    color: #53A298;
+}
+
+.slow, .cripple {
+    color: #7F58E5;
+}
+
+.daze, .push, .stun, .launch, .interrupt {
+    color: #FFE683;
+}
+
+.poison {
+    color: #E1DC5A;
+}
+
+.shock, .freeze {
+    color: #20CDFF;
+}

@@ -13,7 +13,10 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\Seed::class,
+        Commands\SeedPermissions::class,
+        Commands\SeedSkills::class,
+        Commands\SeedHeroes::class,
     ];
 
     /**

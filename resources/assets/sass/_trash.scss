@@ -1,0 +1,193 @@
+// Some necessary stuff for TinyMCE
+h2 {
+    color: $grey-lighter;
+    font-size: 2.5rem;
+}
+
+h3 {
+    color: $grey-lighter;
+    font-size: 2rem;
+}
+
+#guideContents {
+    min-height: 15em;
+    border: 1px solid $text;
+    border-radius: 3px;
+    padding: 1em;
+}
+
+// The rest of the trash
+.is-guide-stat {
+    margin-bottom: -1.5em;
+    font-size: 90%;
+}
+
+.is-new:after {
+    content: "New!";
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    color: $green;
+    background-color: rgba($dark, 0.8);
+    width: 100%;
+}
+
+.is-hero-selection {
+    justify-content: center;
+}
+
+.list-hero-skills > * {
+    padding: 0.25em;
+}
+
+.is-base-skill img {
+    max-height: 85px;
+}
+
+.tabs ul {
+    padding-left: 0;
+    justify-content: center;
+}
+
+.is-build-display {
+    padding: 0.25em;
+}
+
+.hero-details {
+    margin-bottom: 1em;
+}
+
+.is-featured-guide {
+    border: 1px solid transparentize($primary, 0.7);
+    background: rgba(0,0,0,0.2);
+    margin: 0.1em;
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+.is-vertically-aligned {
+    align-items: center;
+}
+
+
+.is-hero-guide-selector {
+    position: relative;
+    border: 1px solid transparentize($primary, 0.7);
+    background: rgba(0,0,0,0.2);
+
+    &:hover {
+    background: rgba(0,0,0,0.6);
+
+        h4, p {
+            background: rgba(0,0,0,0.8);
+        }
+    }
+
+    h4, p {
+        position: absolute;
+        background: rgba(0,0,0,0.4);
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+    }
+}
+
+.skill-build, #skill-level-breakdown {
+    margin-top: 3em;
+    margin-bottom: 0;
+}
+
+ul {
+    list-style: inherit;
+    padding-left: 30px;
+}
+
+.is-wide {
+    width: 100%;
+}
+
+.input {
+    margin: 0.2em;
+}
+
+.input:focus, .input.is-focused, .input:active,
+.input.is-active, .textarea:focus, .textarea.is-focused,
+.textarea:active, .textarea.is-active {
+    border-color: $primary;
+}
+
+.field.is-grouped > .control {
+    flex-shrink: 1;
+}
+
+.is-skill, .is-talent {
+    background-color: $primary;
+    border-radius: 3px;
+    margin: 0.3em;
+    padding: 0;
+}
+
+.is-skill, .is-talent {
+    cursor: pointer;
+}
+
+.selected-skill, .selected-talent {
+    background-color: $green;
+}
+
+.skill-selector {
+    .button {
+        margin-bottom: 0.5em;
+    }
+
+    .is-active {
+        margin-left: 1em;
+    }
+}
+
+.is-level-build {
+    text-align: center;
+    cursor: move;
+    padding: 0.25em;
+
+    p {
+        word-break: break-word;
+        hyphens: auto;
+        font-size: 80%;
+    }
+}
+
+#build-talent {
+    text-align: center;
+    padding: 0.25em;
+    margin: 0 auto;
+
+    p {
+        word-break: break-word;
+        hyphens: auto;
+        font-size: 80%;
+    }
+}
+
+// Trashy media selector for all "desktop" sizes
+@media screen and (min-width: 768px){
+    .is-hero-guide-selector {
+        margin: 0.5em;
+        display: flex;
+        align-items: center;
+    }
+
+    .tabs ul {
+        padding-left: 1em;
+        justify-content: flex-start;
+    }
+
+    .is-skill, .is-talent {
+        margin: 1em;
+        padding: 0.5em;
+    }
+}

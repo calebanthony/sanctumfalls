@@ -22,3 +22,17 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Guide::class, function (Faker\Generator $faker) {
+    return [
+        'name'      => $faker->name,
+        'author_id' => factory('App\User')->create()->id,
+        'author'    => $faker->name,
+        'summary'   => $faker->catchPhrase,
+        'hero'      => $faker->firstNameFemale,
+        'pros'      => $faker->city,
+        'cons'      => $faker->city,
+        'build'     => 'lmb_left,lmb_left_left,rmb_left,rmb_left_left,f_left,f_left_left,q_left,q_left_left,e_left,e_left_left,Outgunned',
+        'contents'  => $faker->paragraph,
+    ];
+});

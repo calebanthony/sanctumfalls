@@ -1,38 +1,67 @@
+$grey-darker:  #1f2d3b;
+$grey-dark:    #2B3E50;
+$grey:         #4E5D6C;
+$grey-light:   #8694a4;
+$grey-lighter: #dee5ed;
 
-// Body
-$body-bg: #f5f8fa;
+$orange:       #DF691A;
+$yellow:       #f0ad4e;
+$green:        #5cb85c;
+$blue:         #5bc0de;
+$red:          #d9534f;
 
-// Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
-$navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
+$primary: $orange !default;
 
-// Brands
-$brand-primary: #3097D1;
-$brand-info: #8eb4cb;
-$brand-success: #2ab27b;
-$brand-warning: #cbb956;
-$brand-danger: #bf5329;
+$dark: darken($grey-darker, 3);
 
-// Typography
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 14px;
-$line-height-base: 1.6;
-$text-color: #636b6f;
+$title: $grey-lighter;
+$title-weight: 400;
+$subtitle-strong: $grey-lighter;
+$subtitle: darken($grey-lighter, 15);
+$subtitle-strong: darken($grey-lighter, 15);
 
-// Navbar
-$navbar-default-bg: #fff;
+$background: $grey-dark;
+$body-background: $grey-darker;
 
-// Buttons
-$btn-default-color: $text-color;
+$border: $grey;
 
-// Inputs
-$input-border: lighten($text-color, 40%);
-$input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
+$family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-// Panels
-$panel-default-heading-bg: #fff;
+$text: $grey-lighter;
+$text-strong: darken($grey-lighter, 15);
+$text-light: $grey-light;
+
+$link: $grey-light;
+$link-hover: $grey-lighter;
+$link-focus: $grey-lighter;
+$link-active: $grey-lighter;
+
+$button: $grey-lighter;
+$button-background-color: $grey;
+$button-border: $grey;
+
+$button-hover-border: transparent;
+$button-active-border-color: transparent;
+
+$radius: 0;
+$radius-small: 0;
+
+$input-hover: $link-hover;
+
+$table            : $text;
+$table-head       : $grey-lighter;
+$table-background : $grey-dark;
+$table-border     : $grey;
+$table-row-hover-background     : $grey-darker;
+$table-row-even-background      : $grey-darker;
+$table-row-even-hover-background: lighten($grey-darker, 4);
+
+$navbar-background: $background;
+$navbar-item: $text;
+$navbar-item-hover: $grey-light;
+$navbar-item-active: $primary;
+$navbar-dropdown-item-hover: $grey-light;
+$navbar-dropdown-background: $background;
+
+$dropdown-content-background: $background;
+$dropdown-item: $text;

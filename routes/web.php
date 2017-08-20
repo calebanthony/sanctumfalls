@@ -1,16 +1,22 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', 'HomeController@index');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('users', 'UserController');
+    Route::resource('roles', 'RoleController');
+
+    Route::resource('heroes', 'HeroController');
+
+    Route::resource('skills', 'SkillController');
 });
+
+Route::get('guides/{hero}/{name}/edit', 'GuidesController@edit');
+Route::get('guides/create/{hero}', 'GuidesController@create');
+Route::get('guides/{hero}', 'GuidesController@list');
+Route::get('guides/{hero}/{name}', 'GuidesController@show');
+Route::resource('guides', 'GuidesController');
+
+Route::post('votes/{guide}', 'VotesController@store');
+
+Auth::routes();
