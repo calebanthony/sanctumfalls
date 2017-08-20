@@ -178,7 +178,7 @@ class GuidesController extends Controller
 
         $guide->save();
 
-        return redirect('/guides/'.$guide->hero.'/'.$guide->name);
+        return redirect('/guides/'.$guide->hero.'/'.$guide->id);
     }
 
     /**
