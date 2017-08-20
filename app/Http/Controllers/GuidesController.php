@@ -109,6 +109,7 @@ class GuidesController extends Controller
      */
     public function show($hero, $id)
     {
+        $hero = str_replace('_', ' ', $hero);
         $guide = Guide::where(compact('hero', 'id'))->first();
         $guide->increment('views');
 
