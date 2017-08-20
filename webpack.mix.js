@@ -20,4 +20,16 @@ mix.js([
 
 if (mix.inProduction()) {
     mix.version();
+    mix.webpackConfig({
+        module: {
+            rules: [{
+                test: /\.js?$/,
+                exclude: /(bower_components)/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: mix.config.babel()
+                }]
+            }]
+        }
+    });
 }
