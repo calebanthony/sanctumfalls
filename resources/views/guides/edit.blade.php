@@ -29,26 +29,31 @@
                 <input class="input" type="text" value="{{ $guide->hero }}" disabled>
             </div>
         </div>
-        <div class="field">
-            <label class="label" for="pros">Pros</label>
-            <div class="control">
-                <input class="input" type="text" name="pros[0]" value="{{ $guide->pros[0] }}" placeholder="A good thing about this build/hero" required>
-                <input class="input" type="text" name="pros[1]" value="{{ $guide->pros[1] }}">
-                <input class="input" type="text" name="pros[2]" value="{{ $guide->pros[2] }}">
+        <div class="field is-grouped">
+            <div class="control" id="pros">
+                <label class="label is-size-4" for="pros">Pros</label>
+                @foreach($guide->pros as $pro)
+                    <input class="input" type="text" name="pros[]" value="{{ $pro }}">
+                @endforeach
+            </div>
+            <div class="control" id="cons">
+                <label class="label is-size-4" for="cons">Cons</label>
+                @foreach($guide->cons as $con)
+                    <input class="input" type="text" name="cons[]" value="{{ $con }}">
+                @endforeach
             </div>
         </div>
-        <div class="field">
-            <label class="label" for="cons">Cons</label>
-            <div class="control">
-                <input class="input" type="text" name="cons[0]" value="{{ $guide->cons[0] }}" placeholder="A downside about this build/hero" required>
-                <input class="input" type="text" name="cons[1]" value="{{ $guide->cons[1] }}">
-                <input class="input" type="text" name="cons[2]" value="{{ $guide->cons[2] }}">
+        <div class="columns">
+            <div class="column is-4 is-offset-4">
+                <button type="button" class="button is-success is-wide" id="listMore">List More</button>
             </div>
         </div>
         <div class="field">
             <label class="label" for="build">Skill Build</label>
             <div class="control">
-                <input class="input" type="text" name="build" placeholder="Coming eventually" required>
+                @include('guides.editBuild', [
+                    'hero' => $guide->getHero()
+                ])
             </div>
         </div>
         <div class="field">

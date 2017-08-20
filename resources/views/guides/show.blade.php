@@ -1,12 +1,21 @@
 @extends('layout')
 
 @section('content')
-    <h1 class="title is-3">
-        {{ $guide->name }}
-    </h1>
-    <h2 class="subtitle is-4">
-        {{ $guide->hero }}
-    </h2>
+    <div class="columns">
+        <div class="column is-10">
+            <h1 class="title is-3">
+                {{ $guide->name }}
+            </h1>
+            <h2 class="subtitle is-4">
+                {{ $guide->hero }}
+            </h2>
+        </div>
+        <div class="column is-2">
+            @if($guide->ownedBy(\Auth::user()))
+                <a href="/guides/{{ str_replace(' ', '_', $guide->hero) }}/{{ $guide->id }}/edit" class="button is-success has-text-right">Edit Guide</a>
+            @endif
+        </div>
+    </div>
     <div class="buildArea">
         <h4 class="title is-4">Build</h4>
         <div class="columns is-multiline is-mobile has-text-centered">

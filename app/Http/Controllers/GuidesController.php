@@ -147,10 +147,11 @@ class GuidesController extends Controller
      */
     public function edit($hero, $id)
     {
+        $hero = str_replace('_', ' ', $hero);
         $guide = Guide::where(compact('hero', 'id'))->first();
 
         if (! $guide->ownedBy(\Auth::user())) {
-            flash()->warning('What are you doing?', 'You don\'t have permission to edit that guide.');
+            flash()->error('What are you doing?', 'You don\'t have permission to edit that guide.');
             return redirect('/');
         }
 
