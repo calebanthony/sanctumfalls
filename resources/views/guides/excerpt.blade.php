@@ -5,7 +5,7 @@
     <div class="column is-10-desktop is-12-touch">
         <div class="columns is-mobile">
             <div class="column is-10-touch is-9-desktop">
-                <a href="/guides/{{ str_replace(' ', '_', $guide->hero) }}/{{ str_replace(' ', '_', $guide->name) }}">
+                <a href="/guides/{{ str_replace(' ', '_', $guide->hero) }}/{{ $guide->id }}">
                     <h3 class="title is-5">{{ $guide->name }}</h3>
                 </a>
                 <h6 class="subtitle is-6">

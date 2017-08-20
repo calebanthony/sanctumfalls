@@ -15,7 +15,7 @@
         </p>
     </div>
     <div class="column is-9-touch is-4-desktop">
-        <a href="/guides/{{ str_replace(' ', '_', $heroData->name) }}/{{ str_replace(' ', '_', $guide->name) }}" class="title is-3">
+        <a href="/guides/{{ str_replace(' ', '_', $heroData->name) }}/{{ $guide->id }}" class="title is-3">
             {{ $guide->name }}
         </a>
         <p class="has-text-grey-light">by {{ $guide->author }}</p>

@@ -82,7 +82,7 @@ class GuidesController extends Controller
 
         flash()->success('Guide Created!', 'Your guide is out in the wild now.');
 
-        return redirect('/guides/'.$guide->hero.'/'.$guide->name);
+        return redirect('/guides/'.$guide->hero.'/'.$guide->id);
     }
 
     /**
@@ -107,11 +107,9 @@ class GuidesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($hero, $name)
+    public function show($hero, $id)
     {
-        $name = str_replace('_', ' ', $name);
-
-        $guide = Guide::where(compact('hero', 'name'))->first();
+        $guide = Guide::where(compact('hero', 'id'))->first();
         $guide->increment('views');
 
         $guide->build = explode(',', $guide->build);
@@ -146,9 +144,9 @@ class GuidesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($hero, $name)
+    public function edit($hero, $id)
     {
-        $guide = Guide::where(compact('hero', 'name'))->first();
+        $guide = Guide::where(compact('hero', 'id'))->first();
 
         if (! $guide->ownedBy(\Auth::user())) {
             flash()->warning('What are you doing?', 'You don\'t have permission to edit that guide.');
