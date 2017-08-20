@@ -39,7 +39,7 @@ class TooltipQuery
         }
 
         // Set each part of the finished skill
-        $imageUri = "/images/" . preg_replace('/\s+/', '', strtolower($hero)) . "/" . strtolower($steps[0]) . ".png";
+        $imageUri = "/images/" . preg_replace('/\s+/', '', strtolower($hero)) . "/" . preg_replace('/\s+/', '', strtolower($steps[0])) . ".png";
         $name = $selectedSkill->name;
         $description = $selectedSkill->description;
 
