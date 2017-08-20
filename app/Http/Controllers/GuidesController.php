@@ -58,7 +58,7 @@ class GuidesController extends Controller
      */
     public function store(GuideRequest $request)
     {
-        if (strpos($request->build, "null") !== false) {
+        if (strpos($request->build, ",,") !== false || substr($request->build, -1) == ',') {
             flash()->error('Make sure you fill out your entire build.');
             return redirect()->back()->withInput();
         }
