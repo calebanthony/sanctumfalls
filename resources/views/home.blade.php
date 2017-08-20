@@ -4,14 +4,11 @@
     <h2 class="title is-4">View Guides By Hero</h2>
     <div class="columns is-multiline is-mobile is-hero-selection">
         @foreach ($heroes as $hero)
-            <div class="column is-1-desktop is-3-touch is-hero-guide-selector {{ $hero == 'Oru' ? 'is-new' : ''}}">
-                <a href="/guides/{{ str_replace(' ', '_', $hero) }}">
-                    <img src="/images/{{ preg_replace('/\s+/', '', strtolower($hero)) }}/profile_thumb.png">
-                    <p class="has-text-centered">
-                        {{ $hero }}
-                    </p>
-                </a>
-            </div>
+            @include('heroes.list', [
+                'hero' => $hero,
+                'classList' => 'is-1-desktop is-3-touch',
+                'size' => 'small',
+            ])
         @endforeach
     </div>
 
