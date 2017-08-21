@@ -11,7 +11,7 @@
             </h2>
         </div>
         <div class="column is-2">
-            @if($guide->ownedBy(\Auth::user()))
+            @if(\Auth::check() && $guide->ownedBy(\Auth::user()))
                 <a href="/guides/{{ str_replace(' ', '_', $guide->hero) }}/{{ $guide->id }}/edit" class="button is-success has-text-right">Edit Guide</a>
             @endif
         </div>
