@@ -193,6 +193,32 @@ function getBuildOrder() {
 }
 
 /**
+ * Gets the existing build order if it's set (in editing a guide)
+ */
+function readBuildOrder() {
+    var build = document.getElementById('buildOrder').value.split(',');
+
+    for (var i = 0; i < build.length; i++) {
+        var step = build[i].split('_');
+
+        var skill = step[0];
+        var secondarySkill = step[1];
+        var tertiarySkill = step[2];
+
+        if (typeof tertiarySkill === 'undefined') {
+            // This ONLY deals with secondary skills
+            selectSecondary(skill, secondarySkill);
+            setBuildStep(skill, secondarySkill);
+        } else {
+            selectTertiary(skill, secondarySkill, tertiarySkill);
+            setBuildStep(skill, secondarySkill, tertiarySkill);
+        }
+    }
+}
+
+readBuildOrder();
+
+/**
  * Initialize the sortable list of skills
  */
 var sortable = new Sortable(document.getElementById('skill-level-breakdown'), {

@@ -22,7 +22,7 @@
         ])
     </div>
 
-    <input type="hidden" id="buildOrder" name="build" value="">
+    <input type="hidden" id="buildOrder" name="build" value="{{ $build or '' }}">
 </div>
 <div class="columns is-mobile is-multiline" id="skill-level-breakdown">
     <div class="column is-4-touch is-level-build"></div>

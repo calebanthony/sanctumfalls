@@ -52,7 +52,8 @@
             <label class="label" for="build">Skill Build</label>
             <div class="control">
                 @include('guides.editBuild', [
-                    'hero' => $guide->getHero()
+                    'hero' => $guide->getHero(),
+                    'build' => $guide->build,
                 ])
             </div>
         </div>
