@@ -6,15 +6,18 @@
         <p class="has-text-grey-light has-text-centered">
             <span class="fa fa-eye"></span> {{ $guide->views }}
         </p>
+        {{-- <p class="has-text-grey-light has-text-centered">
+            <span class="fa fa-comment"></span> {{ $guide->comments->count() }}
+        </p> --}}
     </div>
-    <div class="column is-9-touch is-4-desktop">
+    <div class="column is-9-touch is-6-desktop">
         <a href="/guides/{{ str_replace(' ', '_', $heroData->name) }}/{{ $guide->id }}" class="title is-3">
             {{ $guide->name }}
         </a>
         <p class="has-text-grey-light">by {{ $guide->author }}</p>
         <p class="has-text-grey-light">updated <time>{{ date("F j, Y", strtotime($guide->updated_at)) }}</time></p>
     </div>
-    <div class="column is-12-touch is-7-desktop">
+    <div class="column is-12-touch is-5-desktop">
         {{ $guide->summary }}
     </div>
 </div>
