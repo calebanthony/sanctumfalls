@@ -189,6 +189,11 @@ class GuidesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $guide = Guide::find($id);
+        $guide->delete();
+
+        flash()->error('Guide Deleted');
+        
+        return redirect('/');
     }
 }

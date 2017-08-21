@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="columns">
-        <div class="column is-10">
+        <div class="column is-9">
             <h1 class="title is-3">
                 {{ $guide->name }}
             </h1>
@@ -22,9 +22,19 @@
                 </button>
             </form>
         </div>
-        <div class="column is-1">
+        <div class="column is-2">
             @if(\Auth::check() && $guide->ownedBy(\Auth::user()))
-                <a href="/guides/{{ str_replace(' ', '_', $guide->hero) }}/{{ $guide->id }}/edit" class="button is-success has-text-right">Edit Guide</a>
+                <a href="/guides/{{ str_replace(' ', '_', $guide->hero) }}/{{ $guide->id }}/edit" class="button is-success is-wide">
+                    <span class="fa fa-pencil"></span> Edit Guide
+                </a>
+                <form method="POST" action="/guides/{{ $guide->id }}">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+
+                    <button class="button is-warning is-wide">
+                        <span class="fa fa-ban"></span> Delete
+                    </button>
+                </form>
             @endif
         </div>
     </div>
