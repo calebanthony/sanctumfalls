@@ -216,7 +216,9 @@ function readBuildOrder() {
     }
 }
 
-readBuildOrder();
+document.addEventListener('DOMContentLoaded', function() {
+    readBuildOrder();
+})
 
 /**
  * Initialize the sortable list of skills
