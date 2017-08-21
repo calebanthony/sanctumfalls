@@ -10,7 +10,19 @@
                 {{ $guide->hero }}
             </h2>
         </div>
-        <div class="column is-2">
+        <div class="column is-1">
+            <form method="POST" action="/votes/{{ $guide->id }}">
+                {{ csrf_field() }}
+
+                <button class="button is-wide
+                    {{ Auth::check() && $guide->votes->contains('user_id', Auth::id()) ? 'is-success' : '' }}"
+                    {{ Auth::guest() ? 'disabled' : '' }}
+                >
+                    <span class="fa fa-thumbs-up"></span> {{ $guide->votes->count() }}
+                </button>
+            </form>
+        </div>
+        <div class="column is-1">
             @if(\Auth::check() && $guide->ownedBy(\Auth::user()))
                 <a href="/guides/{{ str_replace(' ', '_', $guide->hero) }}/{{ $guide->id }}/edit" class="button is-success has-text-right">Edit Guide</a>
             @endif

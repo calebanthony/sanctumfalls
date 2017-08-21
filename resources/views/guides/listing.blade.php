@@ -1,15 +1,8 @@
 <div class="columns is-multiline is-mobile is-vertically-aligned">
     <div class="column is-3-touch is-1-desktop is-paddingless">
-        <form method="POST" action="/votes/{{ $guide->id }}">
-            {{ csrf_field() }}
-
-            <button class="button is-wide
-                {{ Auth::check() && $guide->votes->contains('user_id', Auth::id()) ? 'is-success' : '' }}"
-                {{ Auth::guest() ? 'disabled' : '' }}
-            >
-                <span class="fa fa-thumbs-up"></span> {{ $guide->votes->count() }}
-            </button>
-        </form>
+        <p class="has-text-grey-light has-text-centered">
+            <span class="fa fa-thumbs-up"></span> {{ $guide->votes->count() }}
+        </p>
         <p class="has-text-grey-light has-text-centered">
             <span class="fa fa-eye"></span> {{ $guide->views }}
         </p>
