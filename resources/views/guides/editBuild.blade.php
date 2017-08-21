@@ -17,6 +17,7 @@
             'talent1' => $hero->getTalent1,
             'talent2' => $hero->getTalent2,
             'talent3' => $hero->getTalent3,
+            'name' => $hero->name,
             'id' => 'talent',
             'style' => 'none'
         ])
