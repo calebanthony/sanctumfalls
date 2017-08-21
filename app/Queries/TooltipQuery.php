@@ -21,12 +21,16 @@ class TooltipQuery
         // Grab the Hero, which we will use to get the skill details
         $selectedHero = Hero::where('name', $hero)->first();
 
+        // Set the skill key. If the skill is a talent, it gets overriden below.
+        $skillKey = strtoupper($steps[0]);
+
         // Check if skill is primary, secondary, or tertiary
         if (!array_key_exists(1, $steps)) {
             // This means there's only the first step, which
             // will be something like "Outgunned" or "lmb"
             if ($steps[0] !== 'lmb' && $steps[0] !== 'rmb' && $steps[0] !== 'f' && $steps[0] !== 'q' && $steps[0] !== 'e') {
                 $selectedSkill = Skill::where('name', $steps[0])->first();
+                $skillKey = 'Talent';
             } else {
                 $selectedSkill = $selectedHero->{$steps[0] . 'Ability'};
             }
@@ -45,7 +49,7 @@ class TooltipQuery
 
         // Finished object!
         $finishedSkill = collect([
-            'skillKey'      => strtoupper($steps[0]),
+            'skillKey'      => $skillKey,
             'imageUri'      => $imageUri,
             'name'          => $name,
             'description'   => $description,
