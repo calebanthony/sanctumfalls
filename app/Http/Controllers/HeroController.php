@@ -73,10 +73,10 @@ class HeroController extends Controller
     {
         if (gettype($id) === 'string') {
             return Hero::where('name', $id)
-                ->with('lmb_ability', 'rmb_ability', 'f_ability', 'q_ability', 'e_ability')->first();
+                ->with('lmbAbility', 'rmbAbility', 'fAbility', 'qAbility', 'eAbility')->first();
         } elseif (gettype($id) === 'integer') {
             return Hero::where('id', $id)
-                ->with('lmb_ability', 'rmb_ability', 'f_ability', 'q_ability', 'e_ability')->first();
+                ->with('lmbAbility', 'rmbAbility', 'fAbility', 'qAbility', 'eAbility')->first();
         }
     }
 
