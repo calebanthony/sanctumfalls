@@ -14,7 +14,7 @@ class GuidesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'delete']]);
+        $this->middleware('auth', ['only' => ['create', 'store', 'edit', 'delete', 'getMine']]);
     }
 
     /**
@@ -193,7 +193,13 @@ class GuidesController extends Controller
         $guide->delete();
 
         flash()->error('Guide Deleted');
-        
+
         return redirect('/');
+    }
+
+    public function getMine()
+    {
+        $guides = Guide::where('author_id', Auth::id())->paginate(10);
+        return view('my.guides', compact('guides'));
     }
 }

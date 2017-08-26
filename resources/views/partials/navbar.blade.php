@@ -29,7 +29,8 @@
                     {{ Auth::user()->name }}
                 </a>
                 <div class="navbar-dropdown">
-                    {{-- <a href="" class="navbar-item">Profile</a> --}}
+                    <a href="/my/guides" class="navbar-item">My Guides</a>
+
                     <a
                         class="navbar-item"
                         href="{{ route('logout') }}"

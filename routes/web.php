@@ -17,6 +17,8 @@ Route::get('guides/{hero}', 'GuidesController@list');
 Route::get('guides/{hero}/{name}', 'GuidesController@show');
 Route::resource('guides', 'GuidesController');
 
+Route::get('my/guides', 'GuidesController@getMine');
+
 Route::post('votes/{guide}', 'VotesController@store');
 
 Auth::routes();
