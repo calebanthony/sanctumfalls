@@ -54,4 +54,30 @@ class Hero extends Model
     {
         return $this->belongsTo('App\Skill', 'talent3', 'id');
     }
+
+    public function tier()
+    {
+        return $this->hasMany('App\TierList');
+    }
+
+    /**
+     * Determine if the given user voted for this hero
+     * @param  User   $user The user in question.
+     * @param  Integer   $tier The tier the user voted for.
+     * @return boolean
+     */
+    public function votedForBy(User $user, $tier)
+    {
+        $votes = $this->tier()->get();
+        return $votes->where('voter_id', $user->id)->where('tier', $tier)->isNotEmpty();
+    }
+
+    public function profile($thumb = 'null')
+    {
+        if ($thumb === 'thumb') {
+            return "/images/" . preg_replace('/\s+/', '', strtolower($this->name)) . "/profile_thumb.png";
+        } else {
+            return "/images/" . preg_replace('/\s+/', '', strtolower($this->name)) . "/profile.png";
+        }
+    }
 }

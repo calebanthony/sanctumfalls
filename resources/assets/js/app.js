@@ -13,6 +13,11 @@ if (document.querySelector('#lmb-toggle')) {
     require('./skillBuilder');
 }
 
+// Only initialize this on the tierlist page.
+if (document.querySelector('#select1')) {
+    require('./tierlist');
+}
+
 require('./tooltips');
 require('./navbar');
 

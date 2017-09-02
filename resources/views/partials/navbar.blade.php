@@ -20,6 +20,9 @@
             <a class="navbar-item" href="/guides/create/all">Create Guide</a>
         </div>
       </div>
+      <a href="/tierlist" class="navbar-item">
+          Tier List
+      </a>
     </div>
 
     <div class="navbar-end">

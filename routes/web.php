@@ -19,6 +19,9 @@ Route::resource('guides', 'GuidesController');
 
 Route::get('my/guides', 'GuidesController@getMine');
 
+Route::get('tierlist', 'TierListController@index');
+Route::post('tierlist', 'TierListController@store');
+
 Route::post('votes/{guide}', 'VotesController@store');
 
 Auth::routes();

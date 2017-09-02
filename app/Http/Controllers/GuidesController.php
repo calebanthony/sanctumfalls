@@ -167,6 +167,11 @@ class GuidesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (strpos($request->build, ",,") !== false || substr($request->build, -1) == ',') {
+            flash()->error('Make sure you fill out your entire build.');
+            return redirect()->back()->withInput();
+        }
+
         $guide = Guide::find($id);
 
         $guide->name        = $request->name;

@@ -2,7 +2,7 @@
 
 @section('content')
     <h2 class="title is-4">View Guides By Hero</h2>
-    <div class="columns is-multiline is-mobile is-hero-selection">
+    <div class="columns is-multiline is-mobile is-centered">
         @foreach ($heroes as $hero)
             @include('heroes.list', [
                 'hero' => $hero,
