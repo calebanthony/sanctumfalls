@@ -20,8 +20,8 @@
         </div>
     </section>
 
-    <script src="/js/tinymce/tinymce.min.js" defer></script>
-    <script src="{{ mix('/js/app.js') }}" defer></script>
+    <script src="/js/tinymce/tinymce.min.js"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
     @include('partials.flash')
 </body>
 </html>
