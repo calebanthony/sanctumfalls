@@ -1,6 +1,12 @@
 @extends('layout')
 
 @section('content')
+    <div class="columns has-text-centered">
+        <div class="column is-12">
+            <h1 class="title h1">Community Tier List</h1>
+            <h3 class="subtitle">Click on a hero to place your vote!</h3>
+        </div>
+    </div>
     <div class="columns">
         <div class="column is-12 has-text-centered">
             <h2 class="title h2">Tier 1</h2>
