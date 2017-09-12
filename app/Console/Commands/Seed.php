@@ -37,8 +37,6 @@ class Seed extends Command
      */
     public function handle()
     {
-        $this->call('migrate:refresh');
-        $this->call('seed:permissions');
         $this->call('seed:skills');
         $this->call('seed:heroes');
     }
