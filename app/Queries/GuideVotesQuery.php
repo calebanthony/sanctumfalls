@@ -18,7 +18,7 @@ class GuideVotesQuery
 
     public function getTopRecent()
     {
-        return Guide::orderBy('updated_at', 'desc')
+        return Guide::orderBy('created_at', 'desc')
             ->take(3)
             ->get();
     }
