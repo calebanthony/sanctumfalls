@@ -29,6 +29,11 @@
                     Create a Guide for This Hero
                 </a>
             </div>
+            <div class="columns hero-details">
+                <a href="/build/{{ str_replace(' ', '_', $heroData->name) }}" class="button is-primary is-wide">
+                    Create a Build for This Hero
+                </a>
+            </div>
             <div class="hero-details">
                 <img src="/images/{{ preg_replace('/\s+/', '', strtolower($heroData->name)) }}/profile.png">
             </div>
