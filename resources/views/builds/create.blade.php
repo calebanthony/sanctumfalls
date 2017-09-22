@@ -8,6 +8,7 @@
     </div>
     <div class="column is-10">
         <h3 class="title is-3" id="buildPage">{{ $hero->name }} Build</h3>
+        <h5 class="subtitle is-5" id="buildPage">Just copy and share the link anywhere!</h5>
     </div>
 </div>
 
