@@ -26,6 +26,8 @@ class BuildsController extends Controller
      */
     public function create($hero)
     {
+        $hero = str_replace('_', ' ', $hero);
+
         $heroData = Hero::where('name', $hero)
             ->with('lmbAbility', 'rmbAbility', 'fAbility', 'qAbility', 'eAbility', 'getTalent1', 'getTalent2', 'getTalent3')
             ->first();
