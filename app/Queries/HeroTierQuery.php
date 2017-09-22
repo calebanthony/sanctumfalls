@@ -12,7 +12,7 @@ class HeroTierQuery
 
         $tier1 = [];
         foreach ($heroes as $hero) {
-            if ($hero->tier()->avg('tier') <= 1.6) {
+            if ($hero->tier()->avg('tier') < 1.6) {
                 array_push($tier1, $hero);
             }
         }
@@ -26,7 +26,7 @@ class HeroTierQuery
 
         $tier2 = [];
         foreach ($heroes as $hero) {
-            if ($hero->tier()->avg('tier') >= 1.7 && $hero->tier()->avg('tier') <= 2.4) {
+            if ($hero->tier()->avg('tier') >= 1.6 && $hero->tier()->avg('tier') <= 2.4) {
                 array_push($tier2, $hero);
             }
         }
@@ -40,7 +40,7 @@ class HeroTierQuery
 
         $tier3 = [];
         foreach ($heroes as $hero) {
-            if ($hero->tier()->avg('tier') >= 2.5) {
+            if ($hero->tier()->avg('tier') > 2.4) {
                 array_push($tier3, $hero);
             }
         }
