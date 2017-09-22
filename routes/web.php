@@ -7,9 +7,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', 'RoleController');
 
     Route::resource('heroes', 'HeroController');
-
     Route::resource('skills', 'SkillController');
 });
+Route::get('build/{hero}/{build?}', 'BuildsController@create');
+Route::resource('builds', 'BuildsController');
 
 Route::get('guides/{hero}/{name}/edit', 'GuidesController@edit');
 Route::get('guides/create/{hero}', 'GuidesController@create');

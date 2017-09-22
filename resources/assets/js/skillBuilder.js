@@ -259,4 +259,6 @@ function getNewBullet(e) {
 }
 
 // Set up button to accept new bullet points
-document.getElementById('listMore').addEventListener('click', getNewBullet, false);
+if (document.getElementById('listMore')) {
+    document.getElementById('listMore').addEventListener('click', getNewBullet, false);
+}

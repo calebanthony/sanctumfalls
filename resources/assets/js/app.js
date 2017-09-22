@@ -18,6 +18,10 @@ if (document.querySelector('#select1')) {
     require('./tierlist');
 }
 
+if (document.getElementById('buildPage')) {
+    require('./build')
+}
+
 require('./tooltips');
 require('./navbar');
 

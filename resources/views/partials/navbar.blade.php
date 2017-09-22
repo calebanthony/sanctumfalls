@@ -13,6 +13,9 @@
 
   <div id="mainMenu" class="navbar-menu">
     <div class="navbar-start">
+      <a href="/builds" class="navbar-item">
+        Create a Build
+      </a>
       <div class="navbar-item has-dropdown is-hoverable is-highlighted">
         <a class="navbar-link" href="/guides">Guides</a>
         <div class="navbar-dropdown">

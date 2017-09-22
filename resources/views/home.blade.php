@@ -8,6 +8,7 @@
                 'hero' => $hero,
                 'classList' => 'is-1-desktop is-3-touch',
                 'size' => 'small',
+                'path' => 'guides'
             ])
         @endforeach
     </div>
