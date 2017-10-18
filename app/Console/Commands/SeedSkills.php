@@ -45,11 +45,11 @@ class SeedSkills extends Command
                     [
                         'id'            => $row->id,
                         'parent_skill'  => $row->parent_skill,
-                        'left_or_right' => $row->left_or_right,
                     ],
                     [
                         'name'          => $row->name,
                         'description'   => $row->description,
+                        'left_or_right' => $row->left_or_right,
                     ]
                 );
             });
