@@ -15,7 +15,7 @@
             {{ $guide->name }}
         </a>
         <p class="has-text-grey-light">by {{ $guide->author }}</p>
-        <p class="has-text-grey-light">updated <time>{{ date("F j, Y", strtotime($guide->updated_at)) }}</time></p>
+        <p class="has-text-grey-light">created <time>{{ date("F j, Y", strtotime($guide->created_at)) }}</time></p>
     </div>
     <div class="column is-12-touch is-5-desktop">
         {{ $guide->summary }}

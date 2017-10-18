@@ -8,7 +8,7 @@ class GuideVotesQuery
 {
     public function get($sortByPopular, $hero)
     {
-        $order = $sortByPopular ? 'votes_count' : 'updated_at';
+        $order = $sortByPopular ? 'votes_count' : 'created_at';
 
         return Guide::withCount('votes')
             ->where('hero', $hero)
