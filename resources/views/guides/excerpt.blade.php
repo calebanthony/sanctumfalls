@@ -15,16 +15,16 @@
             <div class="column is-12-touch is-4-desktop has-text-grey-light">
                 <div class="columns is-mobile">
                     <div class="column is-4 has-text-centered is-guide-stat">
-                        {{-- {{ $guide->views }}
+                        {{-- {{ $guide->comments }}
                         <span class="fa fa-comment"></span> --}}
                     </div>
                     <div class="column is-4 has-text-centered is-guide-stat">
-                        {{ $guide->votes->count() }}
-                        <span class="fa fa-thumbs-up"></span>
+                        <p class="fa fa-thumbs-up"></p>
+                        <p>{{ $guide->votes->count() }}</p>
                     </div>
                     <div class="column is-4 has-text-centered is-guide-stat">
-                        {{ $guide->views }}
-                        <span class="fa fa-eye"></span>
+                        <p class="fa fa-eye"></p>
+                        <p>{{ $guide->views }}</p>
                     </div>
                 </div>
             </div>
