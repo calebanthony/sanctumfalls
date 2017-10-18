@@ -66,7 +66,7 @@ for (var i = 0; i < talents.length; i++) {
                 .innerHTML  = '<span class="fa"></span>'
                             + '<img src="/images/' + hero + '/' + e.target.innerHTML.replace(/\s/g,'').toLowerCase() + '.png">'
                             + '<p>' + e.target.innerHTML + '</p>';
-        document.getElementById('build-talent').setAttribute('skill-name', e.target.innerHTML.trim());
+        document.getElementById('build-talent').setAttribute('skill-name', e.target.id);
 
         // Set it in the 'build' field
         getBuildOrder();

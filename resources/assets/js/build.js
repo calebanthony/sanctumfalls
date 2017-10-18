@@ -36,6 +36,11 @@ function updateURL() {
         if (tertiarySkill === 'right')      skillStep += 'r'
         if (tertiarySkill === 'left')       skillStep += 'l'
 
+        // Then handle the talents
+        if (secondarySkill === undefined && skill !== '') {
+            newUrl += `00${skill.split('talent')[1]}`
+        }
+
         newUrl += skillStep
     }
 
@@ -59,6 +64,12 @@ function parseUrl() {
         if (steps[0] === 'd')    buildStep += 'q'
         if (steps[0] === 'e')    buildStep += 'e'
 
+        // If none of the above is true, it's likely a talent
+        // The steps[2] is the talent ID
+        if (steps[0] === '0') {
+            buildStep += `talent${steps[2]}`
+        }
+
         // Next handle the secondary skill
         if (steps[1] === 'r')    buildStep += '_right'
         if (steps[1] === 'l')    buildStep += '_left'
@@ -73,7 +84,9 @@ function parseUrl() {
         // Add it into the build path
         buildPath += buildStep
     }
-    document.getElementById('buildOrder').value = buildPath
+
+    // Remove the trailing comma
+    document.getElementById('buildOrder').value = buildPath.replace(/,+$/, "")
 }
 
 parseUrl()
