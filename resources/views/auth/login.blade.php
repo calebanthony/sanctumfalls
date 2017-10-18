@@ -24,7 +24,7 @@
             <div class="field">
                 <div class="control">
                     <label for="remember" class="checkbox">
-                        <input name="remember" type="checkbox" value="{{ old('remember') ? 'checked' : '' }}">
+                        <input name="remember" id="remember" type="checkbox" value="{{ old('remember') ? 'checked' : '' }}">
                         Remember Me
                     </label>
                 </div>
