@@ -85,11 +85,11 @@ class Guide extends Model
 
     public function getIsFreshAttribute()
     {
-        return $this->created_at >= Carbon::now()->subDays(28);
+        return $this->updated_at >= Carbon::now()->subDays(28);
     }
 
     public function getIsStaleAttribute()
     {
-        return $this->created_at <= Carbon::now()->subDays(70);
+        return $this->updated_at <= Carbon::now()->subDays(70);
     }
 }
