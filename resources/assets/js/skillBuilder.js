@@ -151,9 +151,15 @@ function clearOldBuildStep(skill) {
  */
 function insertBuildStep(skillId, secondarySkillId, tertiarySkillId) {
     var levelBuild = document.querySelectorAll('.is-level-build');
+    var talentBuild = document.getElementById('build-talent')
     var hero = document.querySelector('[hero]').getAttribute('hero').replace(/\s/g,'').toLowerCase();
 
-    if (tertiarySkillId === '') {
+    // Check for talents first
+    if (skillId === 'talent1' || skillId === 'talent2' || skillId === 'talent3') {
+        var skill = document.getElementById(skillId)
+        document.getElementById(skillId).click()
+        return
+    } else if (tertiarySkillId === '') {
         var skill = document.getElementById(skillId + '_' + secondarySkillId);
         var mappedSkillId = skillId + '_' + secondarySkillId;
     } else { // Get the tertiary skill name
@@ -204,6 +210,11 @@ function readBuildOrder() {
         var skill = step[0];
         var secondarySkill = step[1];
         var tertiarySkill = step[2];
+
+        // First we'll check if it's a talent
+        if (skill === 'talent1' || skill === 'talent2' || skill === 'talent3') {
+            setBuildStep(skill)
+        }
 
         if (typeof tertiarySkill === 'undefined') {
             // This ONLY deals with secondary skills
