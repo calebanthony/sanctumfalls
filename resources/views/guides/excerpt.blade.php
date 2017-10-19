@@ -1,6 +1,6 @@
 <div class="columns is-mobile is-multiline is-featured-guide is-vertically-aligned">
-    <div class="column is-2-desktop is-6-touch is-offset-3-touch">
-        <img src="/images/{{ preg_replace('/\s+/', '', strtolower($guide->hero)) }}/profile.png">
+    <div class="column is-2-desktop is-6-touch is-offset-3-touch is-paddingless">
+        <img src="/images/{{ preg_replace('/\s+/', '', strtolower($guide->hero)) }}/profile_thumb.png">
     </div>
     <div class="column is-10-desktop is-12-touch">
         <div class="columns is-mobile is-multiline">
