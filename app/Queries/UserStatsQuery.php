@@ -11,11 +11,21 @@ class UserStatsQuery
     public function get($username)
     {
         $stats = (object)[];
+        $stats->guides = $this->getTotalGuides($username);
         $stats->views = $this->getTotalViews($username);
         $stats->thumbUps = $this->getTotalThumbUps($username);
         $stats->thumbUpsGiven = $this->getTotalThumbUpsGiven($username);
 
         return $stats;
+    }
+
+    private function getTotalGuides($username)
+    {
+        $totalGuides = Guide::withCount('votes')
+            ->where('author', $username)
+            ->count();
+
+        return $totalGuides;
     }
 
     private function getTotalViews($username)

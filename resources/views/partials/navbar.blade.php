@@ -35,6 +35,8 @@
                     {{ Auth::user()->name }}
                 </a>
                 <div class="navbar-dropdown">
+                    <a href="/profile/{{ Auth::user()->name }}" class="navbar-item">My Profile</a>
+
                     <a href="/my/guides" class="navbar-item">My Guides</a>
 
                     <a

@@ -10,6 +10,10 @@
         <p class="subtitle">Across all guides</p>
         <div class="columns is-mobile has-text-centered">
             <div class="column">
+                <p>Written</p>
+                <p class="has-text-weight-bold is-size-4">{{ $stats->guides }}</p>
+            </div>
+            <div class="column">
                 <p><span class="fa fa-eye"></span></p>
                 <p class="has-text-weight-bold is-size-4">{{ $stats->views }}</p>
             </div>
