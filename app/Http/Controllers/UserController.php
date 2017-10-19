@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Authorizable;
 use App\User;
 use App\Role;
+use App\Guide;
 use App\Permission;
+use App\Queries\UserStatsQuery;
 
 class UserController extends Controller
 {
     use Authorizable;
-    
+
     public function index()
     {
         $result = User::latest()->paginate();
@@ -119,5 +121,13 @@ class UserController extends Controller
 
         $user->syncRoles($roles);
         return $user;
+    }
+
+    public function getMine($username)
+    {
+        $guides = Guide::where('author', $username)->paginate(10);
+        $stats = (new UserStatsQuery)->get($username);
+
+        return view('my.profile', compact('guides', 'username', 'stats'));
     }
 }

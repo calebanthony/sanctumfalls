@@ -25,4 +25,6 @@ Route::post('tierlist', 'TierListController@store');
 
 Route::post('votes/{guide}', 'VotesController@store');
 
+Route::get('profile/{username}', 'UserController@getMine');
+
 Auth::routes();
