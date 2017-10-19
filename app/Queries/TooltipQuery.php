@@ -21,16 +21,27 @@ class TooltipQuery
         // Grab the Hero, which we will use to get the skill details
         $selectedHero = Hero::where('name', $hero)->first();
 
-        // Set the skill key. If the skill is a talent, it gets overriden below.
+        // Set the skill key and image URI. If the skill is a talent, it gets overriden below.
         $skillKey = strtoupper($steps[0]);
+        $imageUri = "/images/" . preg_replace('/\s+/', '', strtolower($hero)) . "/" . preg_replace('/\s+/', '', strtolower($steps[0])) . ".png";
 
         // Check if skill is primary, secondary, or tertiary
         if (!array_key_exists(1, $steps)) {
-            // This means there's only the first step, which
-            // will be something like "Outgunned" or "lmb"
-            if ($steps[0] !== 'lmb' && $steps[0] !== 'rmb' && $steps[0] !== 'f' && $steps[0] !== 'q' && $steps[0] !== 'e') {
+            // First we check if the skill follows the new way of making guides
+            // by using the "talentX" name. This needs to get the image name
+            // slightly differently.
+            if ($steps[0] === 'talent1' || $steps[0] === 'talent2' || $steps[0] === 'talent3') {
+                $talent = $steps[0];
+                $selectedSkill = Skill::where('id', $selectedHero->$talent)->first();
+                $skillKey = 'Talent';
+                $imageUri = "/images/" . preg_replace('/\s+/', '', strtolower($hero)) . "/" . preg_replace('/\s+/', '', strtolower($selectedSkill->name)) . ".png";
+            // If it doesn't, it follows the old way with the actual skill name,
+            // like "Outgunned". Here we make sure it's not a normal skill.
+            } elseif ($steps[0] !== 'lmb' && $steps[0] !== 'rmb' && $steps[0] !== 'f' && $steps[0] !== 'q' && $steps[0] !== 'e') {
                 $selectedSkill = Skill::where('name', $steps[0])->first();
                 $skillKey = 'Talent';
+            // Finally, if it's not either way of doing talents, it must
+            // be a normal skill
             } else {
                 $selectedSkill = $selectedHero->{$steps[0] . 'Ability'};
             }
@@ -43,7 +54,6 @@ class TooltipQuery
         }
 
         // Set each part of the finished skill
-        $imageUri = "/images/" . preg_replace('/\s+/', '', strtolower($hero)) . "/" . preg_replace('/\s+/', '', strtolower($steps[0])) . ".png";
         $name = $selectedSkill->name;
         $description = $selectedSkill->description;
 
