@@ -4,7 +4,7 @@
     <div class="columns">
         <div class="column is-9">
             <h1 class="title is-3">
-                {{ $guide->name }} <span class="subtitle is-5">by {{ $guide->author }}</span>
+                {{ $guide->name }} <span class="subtitle is-5">by <a href="/profile/{{ $guide->author }}">{{ $guide->author }}</a></span>
             </h1>
             <h2 class="subtitle is-4">
                 {{ $guide->hero }}
