@@ -9,7 +9,7 @@
                     <h3 class="title is-5">{{ $guide->name }}</h3>
                 </a>
                 <h6 class="subtitle is-6">
-                    by <a href="/profile/{{ $guide->author }}">{{ $guide->author }}</a> created {{ date("F j, Y", strtotime($guide->created_at)) }}
+                    by <a href="/profile/{{ $guide->author }}">{{ $guide->author }}</a> updated {{ date("F j, Y", strtotime($guide->updated_at)) }}
                 </h6>
             </div>
             <div class="column is-12-touch is-4-desktop has-text-grey-light">

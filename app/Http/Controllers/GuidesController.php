@@ -111,6 +111,9 @@ class GuidesController extends Controller
     {
         $hero = str_replace('_', ' ', $hero);
         $guide = Guide::where(compact('hero', 'id'))->first();
+
+        // Increment views without changing 'updated_at'
+        $guide->timestamps = false;
         $guide->increment('views');
 
         $guide->build = explode(',', $guide->build);

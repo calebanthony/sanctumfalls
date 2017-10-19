@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Guide extends Model
 {
@@ -80,5 +81,15 @@ class Guide extends Model
         return Hero::where('name', $this->hero)
             ->with('lmbAbility', 'rmbAbility', 'fAbility', 'qAbility', 'eAbility', 'getTalent1', 'getTalent2', 'getTalent3')
             ->first();
+    }
+
+    public function getIsFreshAttribute()
+    {
+        return $this->created_at >= Carbon::now()->subDays(28);
+    }
+
+    public function getIsStaleAttribute()
+    {
+        return $this->created_at <= Carbon::now()->subDays(70);
     }
 }
