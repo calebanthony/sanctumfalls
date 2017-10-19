@@ -8,8 +8,6 @@
         @foreach ($heroes as $hero)
             @include('heroes.list', [
                 'hero' => $hero,
-                'classList' => 'is-1-desktop is-3-touch',
-                'size' => 'small',
                 'path' => 'build'
             ])
         @endforeach
