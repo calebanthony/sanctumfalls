@@ -29,9 +29,9 @@
                 </div>
             </div>
 
-        </div>
-        <div class="column">
-            <p>{{ $guide->summary }}</p>
+            <div class="column guide-excerpt">
+                <p>{{ $guide->summary }}</p>
+            </div>
         </div>
     </div>
 </div>
