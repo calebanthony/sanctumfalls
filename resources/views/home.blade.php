@@ -19,7 +19,7 @@
             @endforeach
         </div>
         <div class="column">
-            <h2 class="title is-4">Most Popular</h2>
+            <h2 class="title is-4">Most Popular <span class="subtitle">(Updated in last 30 days)</span></h2>
             @foreach ($popularGuides as $guide)
                 @include('guides.excerpt', compact('guide'))
             @endforeach

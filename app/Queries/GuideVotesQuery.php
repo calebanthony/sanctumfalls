@@ -3,6 +3,7 @@
 namespace App\Queries;
 
 use App\Guide;
+use Carbon\Carbon;
 
 class GuideVotesQuery
 {
@@ -26,6 +27,7 @@ class GuideVotesQuery
     public function getTopPopular()
     {
         return Guide::withCount('votes')
+            ->where('updated_at', '>=', Carbon::now()->subDays(30))
             ->orderBy('votes_count', 'desc')
             ->take(5)
             ->get();
