@@ -1,4 +1,5 @@
-import Sortable from 'sortablejs';
+import Sortable from 'sortablejs'
+import Tooltip from 'tooltip.js'
 
 /*
  * Toggles the different skills in the builder.
@@ -64,9 +65,17 @@ for (var i = 0; i < talents.length; i++) {
         // Mark it in the bar at the bottom
         document.getElementById('build-talent')
                 .innerHTML  = '<span class="fa"></span>'
-                            + '<img src="/images/' + hero + '/' + e.target.innerHTML.replace(/\s/g,'').toLowerCase() + '.png">'
+                            + '<img src="/images/' + hero + '/' + e.target.innerHTML.replace(/\s/g,'').toLowerCase() + '.png"'
+                            + "tooltip-title='" + e.target.getAttribute('tooltip-title') + "'>"
                             + '<p>' + e.target.innerHTML + '</p>';
         document.getElementById('build-talent').setAttribute('skill-name', e.target.id);
+
+        // Set tooltip
+        new Tooltip(document.getElementById('build-talent').getElementsByTagName('img')[0], {
+            placement: 'bottom',
+            title: document.getElementById('build-talent').getElementsByTagName('img')[0].getAttribute('tooltip-title'),
+            html: true,
+        })
 
         // Set it in the 'build' field
         getBuildOrder();
@@ -130,6 +139,8 @@ function setBuildStep(skill, secondarySkill, tertiarySkill = '') {
         insertBuildStep(skill, secondarySkill, ''); // Just the secondary
         insertBuildStep(skill, secondarySkill, tertiarySkill); // Then the tertiary
     }
+
+    // Update the hidden field with the build order
     getBuildOrder();
 }
 
@@ -142,6 +153,7 @@ function clearOldBuildStep(skill) {
         if (levelBuild[i].hasAttribute('id') && levelBuild[i].getAttribute('mappedskillid').includes(skill + '_')) {
             levelBuild[i].innerHTML = '';
             levelBuild[i].removeAttribute('id');
+            levelBuild[i].removeAttribute('tooltip-title');
         }
     }
 }
@@ -178,7 +190,14 @@ function insertBuildStep(skillId, secondarySkillId, tertiarySkillId) {
             levelBuild[i].innerHTML = '<span class="fa fa-arrows"></span>'
                                     + '<img src="/images/' + hero + '/' + skillId + '.png"'
                                     + "tooltip-title='" + skill.getAttribute('tooltip-title') + "'>"
-                                    + '<p>' + skill.innerHTML + '</p>'
+                                    + '<p>' + skill.innerHTML + '</p>';
+
+            // Set the tooltip
+            new Tooltip(levelBuild[i].getElementsByTagName('img')[0], {
+                placement: 'bottom',
+                title: levelBuild[i].getElementsByTagName('img')[0].getAttribute('tooltip-title'),
+                html: true,
+            })
             break;
         }
     }
