@@ -176,7 +176,8 @@ function insertBuildStep(skillId, secondarySkillId, tertiarySkillId) {
             levelBuild[i].setAttribute('mappedSkillId', mappedSkillId);
 
             levelBuild[i].innerHTML = '<span class="fa fa-arrows"></span>'
-                                    + '<img src="/images/' + hero + '/' + skillId + '.png">'
+                                    + '<img src="/images/' + hero + '/' + skillId + '.png"'
+                                    + "tooltip-title='" + skill.getAttribute('tooltip-title') + "'>"
                                     + '<p>' + skill.innerHTML + '</p>'
             break;
         }
