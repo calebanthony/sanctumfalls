@@ -110,7 +110,8 @@ body {
 }
 
 .navbar {
-  background-color: $background;
+  background-color: $navbar-background;
+  box-shadow: 0px 2px 5px #000;
 
   .navbar-item a:not(.button),
   a.navbar-item:not(.button) {
@@ -128,7 +129,7 @@ body {
 
 .hero {
   .navbar {
-    background-color: $background;
+    background-color: $navbar-background;
   }
   @each $name, $pair in $colors {
     $color: nth($pair, 1);

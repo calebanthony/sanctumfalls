@@ -56,7 +56,7 @@ $table-row-hover-background     : $grey-darker;
 $table-row-even-background      : $grey-darker;
 $table-row-even-hover-background: lighten($grey-darker, 4);
 
-$navbar-background: $background;
+$navbar-background: $body-background;
 $navbar-item: $text;
 $navbar-item-hover: $grey-light;
 $navbar-item-active: $primary;

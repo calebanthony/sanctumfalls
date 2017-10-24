@@ -22,17 +22,6 @@ h3 {
     font-size: 90%;
 }
 
-.is-new:after {
-    content: "New!";
-    top: 0;
-    left: 0;
-    position: absolute;
-    text-align: center;
-    color: $green;
-    background-color: rgba($dark, 0.8);
-    width: 100%;
-}
-
 .is-centered {
     justify-content: center;
 }
@@ -75,8 +64,8 @@ h3 {
 
 .is-hero-guide-selector {
     position: relative;
-    border: 1px solid transparentize($primary, 0.7);
     background: rgba(0,0,0,0.2);
+    border-radius: 4px;
 
     &:hover {
     background: rgba(0,0,0,0.6);
@@ -94,6 +83,19 @@ h3 {
         width: 100%;
 
     }
+}
+
+.is-new:after {
+    content: "New!";
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    color: $green;
+    background-color: rgba($dark, 0.8);
+    width: 100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 .skill-build, #skill-level-breakdown {
@@ -176,7 +178,7 @@ ul {
 // Trashy media selector for all "desktop" sizes
 @media screen and (min-width: 768px){
     .is-hero-guide-selector {
-        margin: 0.5em;
+        margin: 0.25em;
         display: flex;
         align-items: center;
     }

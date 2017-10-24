@@ -11,9 +11,7 @@
 </head>
 <body>
     @include('partials.ganalytics')
-    <div class="container">
-        @include('partials.navbar')
-    </div>
+    @include('partials.navbar')
     <section id="app" class="section">
         <div class="container">
             @yield('content')
