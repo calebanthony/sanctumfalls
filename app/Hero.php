@@ -8,7 +8,7 @@ class Hero extends Model
 {
     protected $table = 'heroes';
     protected $guarded = [];
-    protected $hidden = ['id'];
+    protected $hidden = ['id', 'created_at', 'updated_at'];
 
     public function lmbAbility()
     {
