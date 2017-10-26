@@ -27,6 +27,9 @@
         <a href="/tierlist" class="navbar-item">
             Tier List
         </a>
+        {{-- <a href="/videos" class="navbar-item">
+            Videos
+        </a> --}}
       </div>
 
       <div class="navbar-end">
